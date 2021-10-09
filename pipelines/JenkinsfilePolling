@@ -6,8 +6,7 @@ pipeline {
        
         maven 'maven-3.8.3'
 		jdk 'jdk-17'
-    }
-    
+    }    
    
     triggers { 
     	 //Trigger
