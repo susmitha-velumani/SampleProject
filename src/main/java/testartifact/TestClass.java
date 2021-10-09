@@ -11,5 +11,11 @@ public class TestClass {
 		System.out.println("This is feature branch validation.");
 		
 	}
+	
+	public int demo(int a,int b) {
+		
+		int c= a+b;
+		return c;
+	}
 
 }
