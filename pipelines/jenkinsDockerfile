@@ -1,0 +1,35 @@
+
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+       
+        maven 'maven-3.8.3'
+		jdk 'jdk-17'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                
+                git changelog: false, credentialsId: 'f8ecf5d1-aafe-4ad6-85b7-3e1a6253a791', poll: false, url: 'https://github.com/obulisundar/SampleProject.git'        
+            }
+		}
+		stage('Build') {
+			steps {
+			   
+				 sh "docker build -t testimage:1.0.0 /docker/."
+			}
+		}
+	}
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    // junit '**MavenTrainingProject/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
