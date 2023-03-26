@@ -19,7 +19,7 @@ pipeline {
 		stage('Build') {
 			steps {
 			   
-				 sh "docker build -t testimage:1.0.0 /docker/."
+				 sh "docker build -t testimage:1.0.0 /docker/"
 			}
 		}
 	}
