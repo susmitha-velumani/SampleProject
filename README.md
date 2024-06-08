@@ -4,5 +4,4 @@ validation for build
 Request to merge
 new validate
 QA completed
-validated..
-update changes
+new validation
